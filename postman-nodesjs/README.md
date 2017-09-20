@@ -5,7 +5,10 @@ An sample script is built with nodejs to support collect results from json data 
 SETUP
 
 	Install Node & npm
-    Run npm install in this directory to install necessary of node-modules such as: command line argument, request and promise.
+    Run npm install in this directory to install necessary of node-modules such as:
+      - command line argument
+      - request
+      - promise.
 
 NAME
 
@@ -23,10 +26,10 @@ DESCRIPTION
           - Add new test run
           - Submit test log result
        The automation test case has already existed and there is no test run, script will
-                - Add new test run
-                - Submit test log result
+          - Add new test run
+          - Submit test log result
         The automation test case and test run have already existed, script will
-                - Submit test log result
+          - Submit test log result
 
 USAGE
 
@@ -79,16 +82,17 @@ EXAMPLE
 
     Update the test case results from json data file (newman-json-result.json) to qTest Manager. You can find the test case IDs in the sample results below.
 
-	node uploadNewmanToQTest.js -f newman-json-result.json -c creds.json -o <qtest_project_id>
+	    node uploadNewmanToQTest.js -f newman-json-result.json -c creds.json -o <qtest_project_id>
 
     Output:
-    Successfully uploaded test case [13514528] with status PASS to test run TR-11
-    Successfully uploaded test case [13514544] with status PASS to test run TR-12
-    Successfully uploaded test case [13514548] with status FAIL to test run TR-13
-    Successfully uploaded test case [13514549] with status PASS to test run TR-14
-    Successfully uploaded test case [13514550] with status PASS to test run TR-15
-    Successfully uploaded test case [13514551] with status FAIL to test run TR-16
-    Successfully uploaded test case [13514552] with status PASS to test run TR-17
-    Successfully uploaded test case [13514553] with status FAIL to test run TR-18
+
+        Successfully uploaded test case [13514528] with status PASS to test run TR-11
+        Successfully uploaded test case [13514544] with status PASS to test run TR-12
+        Successfully uploaded test case [13514548] with status FAIL to test run TR-13
+        Successfully uploaded test case [13514549] with status PASS to test run TR-14
+        Successfully uploaded test case [13514550] with status PASS to test run TR-15
+        Successfully uploaded test case [13514551] with status FAIL to test run TR-16
+        Successfully uploaded test case [13514552] with status PASS to test run TR-17
+        Successfully uploaded test case [13514553] with status FAIL to test run TR-18
 
 
