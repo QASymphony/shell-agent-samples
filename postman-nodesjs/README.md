@@ -2,18 +2,6 @@
 
 An sample script is built with nodejs to support collect results from json data file and report it to qTest Manager.
 
-## Setup
-
-`npm install` : install necessary of node-modules such as: command line argument, request and promise.
-
-## How to run
-
-`npm `
-
-================
-
-# Node - uploadResultToQTest
-
 SETUP
 
 	Install Node & npm
