@@ -1,0 +1,61 @@
+[
+    {
+        "automationcontent" : "testFileLocation#ScenarioName",
+        "name" : "scenarioName",
+        "description": "Given the contact form is open\nWhen submitting with only the required \"<first name>\" is filled out\nThen an error will show up\n",
+        "moduleNameIfNew" : "PythonBehaveTests",
+        "status" : "FAIL",
+        "steps" : [
+            {
+                "description" : "Given something happened",
+                "expected_result": "Given",
+                "status": "PASS"
+            },
+            {
+                "description" : "When something was clicked",
+                "expected": "When",
+                "status": "PASS"
+            },
+            {
+                "description" : "Then something was supposed to happen",
+                "expected": "Then",
+                "status": "PASS"
+            },
+            {
+                "description" : "And something was was supposed else was to happen",
+                "expected": "And",
+                "status": "FAIL",
+                "error_message": "fail happened amd this the fail stack trace of sorts"
+            }  
+        ]
+    },
+    {
+        "automationcontent" : "testFileLocation#ScenarioNameTwo",
+        "name" : "scenarioNameTwo",
+        "description": "Given the contact form is open\nWhen submitting with only the required \"<first name>\" is filled out\nThen an error will show up\n",
+        "moduleNameIfNew" : "PythonBehaveTests",
+        "status" : "PASS",
+        "steps" : [
+            {
+                "description" : "Given something happened",
+                "expected": "Given",
+                "status": "PASS"
+            },
+            {
+                "description" : "When something was clicked",
+                "expected": "When",
+                "status": "PASS"
+            },
+            {
+                "description" : "Then something was supposed to happen",
+                "expected": "Then",
+                "status": "PASS"
+            },
+            {
+                "description" : "And something was was supposed else was to happen",
+                "expected": "And",
+                "status": "PASS"
+            }  
+        ]
+    }
+]
