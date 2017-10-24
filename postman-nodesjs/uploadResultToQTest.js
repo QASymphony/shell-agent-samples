@@ -14,7 +14,8 @@ const optionDefinitions = [
   { name: 'help', alias: 'h', type: Boolean},
   { name: 'projectId', alias: 'o', type: String},
   { name: 'projectName', alias: 'n', type: String},
-  { name: 'jobStatus', alias: 'j', type: String}
+  { name: 'jobStatus', alias: 'j', type: String},
+  { name: 'dynamic', alias: 'd', type: String}
 ];
 
 const options = commandLineArgs(optionDefinitions);
@@ -95,6 +96,14 @@ function Login(creds) {
 }
 
 function ParseResultsFile() {
+  console.log("projectId: " + options.projectId);
+  console.log("jobStatus: " + options.jobStatus); 
+  console.log("projectName: " + options.projectName); 
+  if(options.hasOwnProperty('dynamic'))  
+    console.log("dynamic: " + options.dynamic);  
+
+  getQTEObjectFromAgentParameterPath();
+
   var executionResults = [];
 
   if (options.format == 'newman-json') {
@@ -277,14 +286,19 @@ function SearchTestCase(run, token){
           if (err) {
               reject("Unable to search test case: " + err);
           } else {
-              if (body.total > 100) {
-                  reject("Returned more than 100 matching runs! This software isn't built to handle this... yet!");
-              } else if (body.items.length == 0) {
-                  resolved(false);
-              } else {
-                  //get first test case which is matched with automation content
-                  run.testCaseId = body.items[0].id;
-                  resolved(true);
+              if(response.statusCode == 200) {
+                  if (body.total > 100) {
+                      reject("Returned more than 100 matching runs! This software isn't built to handle this... yet!");
+                  } else if (body.items.length == 0) {
+                      resolved(false);
+                  } else {
+                      //get first test case which is matched with automation content
+                      run.testCaseId = body.items[0].id;
+                      resolved(true);
+                  }
+              }
+              else{
+                  reject('Response code: ' + response.statusCode + " with message " + response.statusMessage);
               }
           }
       })
@@ -344,16 +358,6 @@ function SearchTestRun(run, token){
       if (!options.usetestcaseid) {
           query = "'Name' = '" + run.testcase + "'"; // Note that this is the name of the Test Case, not Test Run
       }
-      // empty/anything else is root
-      if (options.parentId) {
-          if (options.parentType = 'release')
-              query = query + " and Release Id = 'RL-" + options.parentId + "'";
-          else if (options.parentType = 'test-suite')
-              query = query + " and Test Suite Id = 'TS-" + options.parentId + "'";
-          else if (options.parentType = 'test-cycle')
-              query = query + " and Test Cycle Id = 'CL-" + options.parentId + "'";
-      }
-
       var opts = {
           url: creds.qtestProtocols + "://" + creds.qtestUrl +  ":" + creds.qtestPort + "/api/v3/projects/" + options.projectId + "/search",
           json: true,
@@ -451,4 +455,57 @@ function UploadResults(run, item, token) {
       });
   });
 
+}
+
+//get QTE object from PARAMETERS_PATH
+function getQTEObjectFromAgentParameterPath(){
+  if(process.env.hasOwnProperty('QTE_SCHEDULED_TX_DATA')){
+    console.log('Value of process.env.QTE_SCHEDULED_TX_DATA: ' + process.env.QTE_SCHEDULED_TX_DATA);
+    console.log('---------------------------------------------');
+
+    if(process.env.QTE_SCHEDULED_TX_DATA != ""){
+      var opts = {
+        url: process.env.QTE_SCHEDULED_TX_DATA,
+        json: true,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
+      request.get(opts, function(err, response, body){
+        if (err)
+          HandleErrorAndExit('Error getting QTE json object from agent.\n\nERROR: ' + err );
+        else{
+          if(body != undefined){
+          console.log('body: ' + JSON.stringify(body));
+          //var testRunsObj = body.testRuns;
+          var field , strTestRun, index;
+          var testRunsObj = body.QTE.testRuns;
+          strTestRun= "";
+          for(index=0; index < testRunsObj.length; index ++) {
+              field = testRunsObj[index];
+              strTestRun += "====================\n";
+              for (var k in field) {
+                  if (field.hasOwnProperty(k)) {
+                      strTestRun += k + ' field has value "' + field[k] + '"\n';
+                  }
+              }
+              strTestRun += "\n====================\n";
+          }
+          strTestRun += "\nDYNAMIC \n";
+          strTestRun += "\n====================\n";
+          if(body.hasOwnProperty('dynamic')){
+            for (var k in body.dynamic) {
+                if (body.dynamic.hasOwnProperty(k)) {
+                   strTestRun += k + ' has value "' + body.dynamic[k] + '"\n';
+                }
+            }
+          }
+          console.log("====================");
+          console.log("test run object: " + strTestRun);
+          console.log("====================");
+         }
+        }
+      })
+    }
+  }
 }

@@ -1,7 +1,8 @@
 {
-       "email": "demo@qas.com",
-       "password": "demo@#1345",
-       "qtestProtocols": "https",
-       "qtestUrl": "demo.qtestnet.com",
-       "qtestPort": 443
+       "email": "<your_qtest_username>",
+       "password": "<your_qtest_password>",
+       "qtestProtocols": "<https_or_http>",
+       "qtestUrl": "<your_qtest_url>",
+       "qtestPort": 443,
+       "projectId": 111111
 }
