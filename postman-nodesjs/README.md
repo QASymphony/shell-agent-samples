@@ -110,4 +110,4 @@ This is the simplest sample to setup qTest Automation Integration with Shell age
 4. Refer the detail configuration of Agent as below:
 
 ### Agent Configuration
-![Agent Configuration](/images/shell-agent.png?raw=true)
+![Agent Configuration](/postman-nodesjs/images/shell-agent.png?raw=true)
