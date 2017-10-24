@@ -96,3 +96,18 @@ EXAMPLE
         Successfully uploaded test case [13514553] with status FAIL to test run TR-18
 
 
+# qTest automation host
+This is the simplest sample to setup qTest Automation Integration with Shell agent
+
+### How to use sample package to integrate with qTest Automation Host
+1. First, download and install qTest Automation Host [here](https://support.qasymphony.com/hc/en-us/articles/115005225543-Download-Automation-Agent-Host)
+2. Download sample shell agent code and unzip in your directory (eg: E:\shell-agent-samples\postman-nodesjs).
+3. Make sure your environment has already insatlled nodejs.
+3. Open command prompt at directory E:\shell-agent-samples\postman-nodesjs and execute command: 
+    npm install
+    node uploadNewmanToQTest.js -f newman-json-result.json -c creds.json -o <qtest_project_id>
+
+4. Refer the detail configuration of Agent as below:
+
+### Agent Configuration
+![Agent Configuration](/images/shell-agent.png?raw=true)
