@@ -303,10 +303,7 @@ def CreateLog(testResult, testRunId):
     note = ""
 
     stepLogObj = []
-    pprint (testResult)
     for step in testResult['steps']:
-
-
         
         if('status' in step):
             if(step['status'] == 'failed'):
@@ -327,7 +324,7 @@ def CreateLog(testResult, testRunId):
         "exe_end_date" : testStart,
         "automation_content" : testResult['automationcontent'],
         "note":note,
-        "test_logs": stepLogObj
+        "test_step_logs": stepLogObj
     }
 
     dbody = json.dumps(body)
