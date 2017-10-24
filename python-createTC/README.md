@@ -1,4 +1,4 @@
-# Execute a Jenkins Job by Curl
+# Execute a Python Behave Test and upload Test Cases and Results to qTest
 
 SETUP
 
