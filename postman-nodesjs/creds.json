@@ -1,8 +1,8 @@
 {
-       "email": "duongnapham@qasymphony.com",
-       "password": "@dmin1234",
-       "qtestProtocols": "https",
-       "qtestUrl": "ent.qtestnet.com",
+       "email": "<your_qtest_username>",
+       "password": "<your_qtest_password>",
+       "qtestProtocols": "<https_or_http>",
+       "qtestUrl": "<your_qtest_url>",
        "qtestPort": 443,
-       "projectId": 56866
+       "projectId": 111111
 }
