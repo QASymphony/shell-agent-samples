@@ -1,0 +1,44 @@
+{
+  "name": "protractor-manager-e2e-tests",
+  "version": "1.0.0",
+  "description": "E2E automation tests for Manager",
+  "author": "Automation Team",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://git.qasymphony.com/manager/e2e-tests.git"
+  },
+  "scripts": {
+    "setup": "npm install && npm run update-selenium",
+    "start": "gulp && npm run start-selenium",
+    "test": "protractor .dist/conf.js",
+    "local-start": "gulp && concurrently \"npm run start-selenium\" \"npm run watch\"",
+    "local-test": "protractor .dist/conf.js --params.package=elite --params.browser=chrome",
+    "update-selenium": "webdriver-manager clean && webdriver-manager update --ie --versions.ie 3.4.0",
+    "start-selenium": "webdriver-manager start --versions.ie=3.4.0 --versions.chrome=latest --versions.gecko=latest",
+    "watch": "tsc -p . --watch"
+  },
+  "dependencies": {
+    "protractor": "5.1.2",
+    "jasmine-spec-reporter": "4.2.1",
+    "jasmine-data-provider": "2.2.0",
+    "winston": "2.3.1",
+    "winston-daily-rotate-file": "1.4.6",
+    "concurrently": "3.5.0",
+    "node-rest-client": "3.1.0",
+    "jsonwebtoken": "8.0.1",
+    "sync-request": "4.1.0",
+    "jasmine2-custom-message": "0.8.4"
+  },
+  "devDependencies": {
+    "@types/es6-promise": "0.0.33",
+    "@types/jasmine": "2.5.54",
+    "@types/node": "8.0.26",
+    "typescript": "2.2.1",
+    "gulp": "3.9.1",
+    "gulp-cli": "1.4.0",
+    "gulp-typescript": "3.2.2",
+    "run-sequence": "2.1.0",
+    "del": "3.0.0"
+  }
+}

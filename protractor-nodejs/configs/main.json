@@ -1,0 +1,34 @@
+{
+  "managerUrl": "https://qas.qtestnet.com",
+  "parametersUrl": "https://parameters.qtestnet.com",
+  "siteAdmin": {
+    "username": "thinhnguyen@qasymphony.com",
+    "password": "admin123"
+  },
+  "packages": {
+    "elite": {
+      "url": "https://sandbox.qtestdev.com",
+      "admin": {
+        "username": "auto.manager@qas.com",
+        "password": "admin123"
+      }
+    },
+    "premium": {
+      "url": "https://ent.qtestnet.com",
+      "admin": {
+        "username": "thinhnguyen@qasymphony.com",
+        "password": "admin123"
+      }
+    },
+    "pro": {
+      "url": "https://pro.qtestnet.com",
+      "admin": {
+        "username": "thinhnguyen@qasymphony.com",
+        "password": "admin123"
+      }
+    }
+  },
+  "suites": [
+    "./specs/smoke/**/*.js"
+  ]
+}
