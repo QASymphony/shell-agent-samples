@@ -20,5 +20,5 @@ DESCRIPTION
     output to the console. This can be viewed in the console tab in the logs for the shell agent after it 
     has been executed.
     
-    ![Setup Img](https://github.com/QASymphony/shell-agent-samples/blob/master/getScheduledJobs/Setup.png?raw=true)
+![Setup Img](https://raw.github.com/QASymphony/shell-agent-samples/master/Setup.png)
     
