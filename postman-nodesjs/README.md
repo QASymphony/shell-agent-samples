@@ -1,22 +1,16 @@
-# postman-nodejs for shell agent sample
+# This is sample automation script for Shell agent
 
-An sample script is built with nodejs to support collect results from json data file and report it to qTest Manager.
+This script stimulates behavior:
+ - Read results from json data file
+ - Report all results to qTest Manager. 
 
-SETUP
+ NAME
 
-	Install Node & npm
-    Run npm install in this directory to install necessary of node-modules such as:
-      - command line argument
-      - request
-      - promise.
-
-NAME
-
-    uploadResultToQTest
+    uploadResultToQTest.js
 
 SYNOPSIS
 
-    uploadResultToQTest [options]
+    uploadResultToQTest.js [options]
 
 DESCRIPTION
 
@@ -66,24 +60,32 @@ USAGE
                             qtestUrl: "<qtest_url>",
                             qtestPort: "<qtest_port>"
                         }
-                        eg:
 
+HOW TO RUN:
 
-EXAMPLE
+PREREQUISITES:
+  - Install nodejs from [here](https://nodejs.org/en/download/)
+  - Configure nodejs path in your system environment variable.
+  - Update your credentials in qTest Manager inside **creds.json** file
 
-	For the .json results file within this folder, create a creds.json file that looks like:
-	{
+SETUP
+  - Access directory which contains sample script (eg: E:\shell-agent-samples\postman-nodesjs)
+
+  - Update creds.json file like example:
+        {
            "email": "demo@qas.com",
            "password": "demo@#1345",
            "qtestProtocols": "https",
            "qtestUrl": "demo.qtestnet.com",
            "qtestPort": 443
-    }
+        }
 
-    Update the test case results from json data file (newman-json-result.json) to qTest Manager. You can find the test case IDs in the sample results below.
+  - Open command prompt and run command: 
+      npm install 
 
-	    node uploadNewmanToQTest.js -f newman-json-result.json -c creds.json -o <qtest_project_id>
-
+  - Run script:  
+      node uploadResultToQTest.js -f newman-json-result.json -c creds.json -o <qtest_project_id>
+    
     Output:
 
         Successfully uploaded test case [13514528] with status PASS to test run TR-11
@@ -98,17 +100,21 @@ EXAMPLE
 # qTest automation host
  This section will introduce how to setup qTest Automation Integration with Shell agent
  
-# How to use sample package to integrate with qTest Automation Host
+# How to use sample script via Shell Agent inside qTest Automation Host
 1. First, download and install qTest Automation Host [here](https://support.qasymphony.com/hc/en-us/articles/115005225543-Download-Automation-Agent-Host)
-2. Download sample shell agent code and unzip in your directory (eg: E:\shell-agent-samples\postman-nodesjs).
-3. Make sure your environment has already installed nodejs.
-4. Open command prompt at directory E:\shell-agent-samples\postman-nodesjs and execute command: 
-    
-    npm install
-    
-    node uploadNewmanToQTest.js -f newman-json-result.json -c creds.json -o <qtest_project_id>
+2. In qTest automation host, make sure "Shell Agent" is installed in your qTest automation agent host
+3. Add new Shell Agent with the detail configuration as below:
 
-5. Refer the detail configuration of Agent as below:
+### Agent Configuration for windows
+Your sample scripts is E:\shell-agent-samples\postman-nodesjs
+![Configuration1](/postman-nodesjs/images/shell-agent.png?raw=true)
 
-### Agent Configuration
-![Agent Configuration](/postman-nodesjs/images/shell-agent.png?raw=true)
+### Agent Configuration for MacOS / Linux: 
+Your sample script is /Users/demo/shell-agent-samples/postman-nodesjs
+![Configuration2](/postman-nodesjs/images/shell-agent-2.png?raw=true)
+
+4. In qTest Manager, select a test run which is reported from sample automation project above, click 'Schedule' and choose 'Immediately upon scheduled'
+### Schedule
+![Configuration3](/postman-nodesjs/images/test-run.png?raw=true)
+
+5. In qTest automation host, select agent to be configured in step 3, click 'Run now'. When the automation script has finished, click 'Show log' to observe all data include system field and custom field of test run / test suite in the log.
