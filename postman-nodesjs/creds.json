@@ -3,6 +3,5 @@
        "password": "<your_qtest_password>",
        "qtestProtocols": "<https_or_http>",
        "qtestUrl": "<your_qtest_url>",
-       "qtestPort": 443,
-       "projectId": 111111
+       "qtestPort": 443
 }
