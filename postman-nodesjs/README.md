@@ -1,10 +1,11 @@
 # This is sample automation script for Shell agent
 
-This script stimulates behavior:
- - Read results from json data file
+This script stimulates behavior
+
+ - Read results from json data file.
  - Report all results to qTest Manager. 
 
- NAME
+NAME
 
     uploadResultToQTest.js
 
@@ -61,33 +62,39 @@ USAGE
                             qtestPort: "<qtest_port>"
                         }
 
-HOW TO RUN:
+HOW TO RUN
 
-PREREQUISITES:
+PREREQUISITES
+
   - Install nodejs from [here](https://nodejs.org/en/download/)
   - Configure nodejs path in your system environment variable.
   - Update your credentials in qTest Manager inside **creds.json** file
 
 SETUP
-  - Access directory which contains sample script (eg: E:\shell-agent-samples\postman-nodesjs)
 
-  - Update creds.json file like example:
-        {
-           "email": "demo@qas.com",
-           "password": "demo@#1345",
-           "qtestProtocols": "https",
-           "qtestUrl": "demo.qtestnet.com",
-           "qtestPort": 443
-        }
+- Download this sample script to a directory (eg:    E:\shell-agent-samples\postman-nodesjs)
+- Update **creds.json** file like example
 
-  - Open command prompt and run command: 
-      npm install 
+```
+	{
+       "email": "demo@qas.com",
+       "password": "demo@#1345",
+       "qtestProtocols": "https",
+       "qtestUrl": "demo.qtestnet.com",
+       "qtestPort": 443
+    }
+```
+RUN
 
-  - Run script:  
-      node uploadResultToQTest.js -f newman-json-result.json -c creds.json -o <qtest_project_id>
-    
-    Output:
+- Open command prompt inside the directory which contains sample script, and run command
 
+```
+     npm install
+     node uploadResultToQTest.js -f newman-json-result.json -c creds.json -o <qtest_project_id>
+     
+```
+  OUTPUT
+```
         Successfully uploaded test case [13514528] with status PASS to test run TR-11
         Successfully uploaded test case [13514544] with status PASS to test run TR-12
         Successfully uploaded test case [13514548] with status FAIL to test run TR-13
@@ -96,15 +103,16 @@ SETUP
         Successfully uploaded test case [13514551] with status FAIL to test run TR-16
         Successfully uploaded test case [13514552] with status PASS to test run TR-17
         Successfully uploaded test case [13514553] with status FAIL to test run TR-18
-
+```
 # qTest automation host
  This section will introduce how to setup qTest Automation Integration with Shell agent
  
 # How to use sample script via Shell Agent inside qTest Automation Host
-1. First, download and install qTest Automation Host [here](https://support.qasymphony.com/hc/en-us/articles/115005225543-Download-Automation-Agent-Host)
-2. In qTest automation host, make sure "Shell Agent" is installed in your qTest automation agent host
-3. Add new Shell Agent with the detail configuration as below:
+ 
 
+ 1. First, download and install qTest Automation Host [here](https://support.qasymphony.com/hc/en-us/articles/115005225543-Download-Automation-Agent-Host)
+ 2. In qTest automation host, make sure "Shell Agent" is installed in your qTest automation agent host
+ 3. Add new Shell Agent with the detail configuration as below:
 ### Agent Configuration for windows
 Your sample scripts is E:\shell-agent-samples\postman-nodesjs
 ![Configuration1](/postman-nodesjs/images/shell-agent.png?raw=true)
@@ -112,9 +120,7 @@ Your sample scripts is E:\shell-agent-samples\postman-nodesjs
 ### Agent Configuration for MacOS / Linux: 
 Your sample script is /Users/demo/shell-agent-samples/postman-nodesjs
 ![Configuration2](/postman-nodesjs/images/shell-agent-2.png?raw=true)
-
 4. In qTest Manager, select a test run which is reported from sample automation project above, click 'Schedule' and choose 'Immediately upon scheduled'
 ### Schedule
 ![Configuration3](/postman-nodesjs/images/test-run.png?raw=true)
-
 5. In qTest automation host, select agent to be configured in step 3, click 'Run now'. When the automation script has finished, click 'Show log' to observe all data include system field and custom field of test run / test suite in the log.
