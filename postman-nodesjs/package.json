@@ -1,10 +1,10 @@
 {
-  "name": "uploadnewmantoqtest",
+  "name": "uploadResultToQTest",
   "version": "1.0.0",
   "description": "Takes JSON newman output and uploads to your qTest project",
   "main": "uploadResultToQTest.js",
   "scripts": {
-    "setup": "npm install"
+    "setup": "npm install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
