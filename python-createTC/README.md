@@ -15,7 +15,7 @@ SYNOPSIS
 
 DESCRIPTION
 
-    The shell script will kick off all behave pythong tests and execute the following scripts:
+    The shell script will kick off all behave python tests and execute the following scripts:
     
         behave 
 
