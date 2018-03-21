@@ -53,7 +53,7 @@ USAGE
                         Values can be 'release' 'test-suite' or 'test-cycle'
 
     -c credentials      The file that has the appropriate qTest Credentials for this script.
-                        It should be json content like:
+                        It should be json content, like below:
                         {
                             email: "<qtest_email>",
                             password: "<qtest_password>",
@@ -71,7 +71,7 @@ PREREQUISITES
 SETUP
 
 - Download this sample script to a directory (eg:    E:\shell-agent-samples\postman-nodesjs)
-- Update **creds.json** file like example
+- Update **creds.json** file, for example:
 
 ```
 	{
@@ -91,14 +91,14 @@ RUN
 ```
   OUTPUT
 ```
-        Successfully uploaded test case [13514528] with status PASS to test run TR-11
-        Successfully uploaded test case [13514544] with status PASS to test run TR-12
-        Successfully uploaded test case [13514548] with status FAIL to test run TR-13
-        Successfully uploaded test case [13514549] with status PASS to test run TR-14
-        Successfully uploaded test case [13514550] with status PASS to test run TR-15
-        Successfully uploaded test case [13514551] with status FAIL to test run TR-16
-        Successfully uploaded test case [13514552] with status PASS to test run TR-17
-        Successfully uploaded test case [13514553] with status FAIL to test run TR-18
+    Successfully uploaded test case [13514528] with status PASS to test run TR-11
+    Successfully uploaded test case [13514544] with status PASS to test run TR-12
+    Successfully uploaded test case [13514548] with status FAIL to test run TR-13
+    Successfully uploaded test case [13514549] with status PASS to test run TR-14
+    Successfully uploaded test case [13514550] with status PASS to test run TR-15
+    Successfully uploaded test case [13514551] with status FAIL to test run TR-16
+    Successfully uploaded test case [13514552] with status PASS to test run TR-17
+    Successfully uploaded test case [13514553] with status FAIL to test run TR-18
 ```
 # qTest automation host
  This section will introduce how to setup qTest Automation Integration with Shell agent
@@ -120,3 +120,5 @@ Your sample script is /Users/demo/shell-agent-samples/postman-nodesjs
 ### Schedule
 ![Configuration3](/postman-nodesjs/images/test-run.png?raw=true)
 5. In qTest automation host, select agent to be configured in step 3, click 'Run now'. When the automation script has finished, click 'Show log' to observe all data include system field and custom field of test run / test suite in the log.
+
+Follow this article for more detailed instructions: [Create Shell Agent](https://support.qasymphony.com/hc/en-us/articles/115005558783-Create-Shell-Agent)
