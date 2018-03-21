@@ -15,16 +15,16 @@ SYNOPSIS
 
 DESCRIPTION
 
-    Load the result data in json format. Verify that test case name has been existed in qTest Manager or not.
-       In case automation test case does not exist, script will:
-          - Script will create new automation test case in qTest
-          - Add new test run
-          - Submit test log result
-       The automation test case has already existed and there is no test run, script will
-          - Add new test run
-          - Submit test log result
-        The automation test case and test run have already existed, script will
-          - Submit test log result
+    Load the test result data in newman's json format containing executed test cases. Verify whether any of the test caes is existed in qTest Manager.
+        IF the (automation-) test case does not exist, the script will:
+        - Create automation test case in qTest Manager
+        - Create test run associated with the above test case
+        - Submit test run log to the test run
+        IF the (automaiton-) test case exists and there is no test run associate with it, the script will:
+        - Create test run associated with the test case
+        - Submit test log result to the test run
+        IF the (automation-) test case and test run exist, the script will:
+        - Submit test log result to the test run
 
 USAGE
 
@@ -82,7 +82,7 @@ SETUP
 ```
 RUN
 
-- Open command prompt inside the directory which contains sample script, and run command
+Open command prompt inside the directory which contains sample script, and execute below command
 
 ```
     npm install
@@ -101,7 +101,7 @@ OUTPUT
     Successfully uploaded test case [13514553] with status FAIL to test run TR-18
 ```
 # qTest automation host
- This section will introduce how to setup qTest Automation Integration with Shell agent
+This section will introduce how to setup qTest Automation Integration with Shell agent
  
 # How to use sample script via Shell Agent inside qTest Automation Host
  
