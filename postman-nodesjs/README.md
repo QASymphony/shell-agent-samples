@@ -7,11 +7,11 @@ This script stimulates behavior
 
 NAME
 
-    uploadResultToQTest.js
+    submitTestResultToQTest.js
 
 SYNOPSIS
 
-    uploadResultToQTest.js [options]
+    submitTestResultToQTest.js [options]
 
 DESCRIPTION
 
@@ -57,9 +57,7 @@ USAGE
                         {
                             email: "<qtest_email>",
                             password: "<qtest_password>",
-                            qtestProtocols: "<qtest_protocols>"
-                            qtestUrl: "<qtest_url>",
-                            qtestPort: "<qtest_port>"
+                            qtestUrl: "<qtest_url>"
                         }
 
 HOW TO RUN
@@ -79,9 +77,7 @@ SETUP
 	{
        "email": "demo@qas.com",
        "password": "demo@#1345",
-       "qtestProtocols": "https",
-       "qtestUrl": "demo.qtestnet.com",
-       "qtestPort": 443
+       "qtestUrl": "https://demo.qtestnet.com"
     }
 ```
 RUN
@@ -90,7 +86,7 @@ RUN
 
 ```
      npm install
-     node uploadResultToQTest.js -f newman-json-result.json -c creds.json -o <qtest_project_id>
+     node submitTestResultToQTest.js -f newman-json-result.json -c creds.json -o <qtest_project_id>
      
 ```
   OUTPUT

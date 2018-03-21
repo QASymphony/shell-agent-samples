@@ -1,7 +1,5 @@
 {
-       "email": "<your_qtest_username>",
-       "password": "<your_qtest_password>",
-       "qtestProtocols": "<https_or_http>",
-       "qtestUrl": "<your_qtest_url>",
-       "qtestPort": 443
+    "email": "huynguyen@qasymphony.com",
+    "password": "admin123",
+    "qtestUrl": "https://qas.qtestnet.com"
 }
