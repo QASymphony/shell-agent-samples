@@ -15,7 +15,8 @@ SYNOPSIS
 
 DESCRIPTION
 
-    Load the test result data in newman's json format containing executed test cases. For each test case, the script verifies whether it exists in qTest Manager.
+    Load the test result data in newman's json format containing executed test cases. 
+    For each test case, the script verifies whether it exists in qTest Manager.
         IF the (automation-) test case does not exist, the script will:
          - Create automation test case in qTest Manager
          - Create test run associated with the above test case
