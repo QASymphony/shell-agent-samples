@@ -74,10 +74,10 @@ SETUP
 - Update **creds.json** file, for example:
 
 ```
-	{
-       "email": "demo@qas.com",
-       "password": "demo@#1345",
-       "qtestUrl": "https://demo.qtestnet.com"
+    {
+        "email": "demo@qas.com",
+        "password": "demo@#1345",
+        "qtestUrl": "https://demo.qtestnet.com"
     }
 ```
 RUN
@@ -85,11 +85,11 @@ RUN
 - Open command prompt inside the directory which contains sample script, and run command
 
 ```
-     npm install
-     node submitTestResultToQTest.js -f newman-json-result.json -c creds.json -o <qtest_project_id>
-     
+    npm install
+    node submitTestResultToQTest.js -f newman-json-result.json -c creds.json -o <qtest_project_id>
 ```
-  OUTPUT
+OUTPUT
+
 ```
     Successfully uploaded test case [13514528] with status PASS to test run TR-11
     Successfully uploaded test case [13514544] with status PASS to test run TR-12
@@ -106,9 +106,9 @@ RUN
 # How to use sample script via Shell Agent inside qTest Automation Host
  
 
- 1. First, download and install qTest Automation Host [here](https://support.qasymphony.com/hc/en-us/articles/115005225543-Download-Automation-Agent-Host)
- 2. In qTest automation host, make sure "Shell Agent" is installed in your qTest automation agent host
- 3. Add new Shell Agent with the detail configuration as below:
+1. First, download and install qTest Automation Host [here](https://support.qasymphony.com/hc/en-us/articles/115005225543-Download-Automation-Agent-Host)
+2. In qTest automation host, make sure "Shell Agent" is installed in your qTest automation agent host
+3. Add new Shell Agent with the detail configuration as below:
 ### Agent Configuration for windows
 Your sample scripts is E:\shell-agent-samples\postman-nodesjs
 ![Configuration1](/postman-nodesjs/images/shell-agent.png?raw=true)
