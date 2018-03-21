@@ -15,16 +15,16 @@ SYNOPSIS
 
 DESCRIPTION
 
-    Load the test result data in newman's json format containing executed test cases. Verify whether any of the test caes is existed in qTest Manager.
+    Load the test result data in newman's json format containing executed test cases. For each test case, the script verifies whether it exists in qTest Manager.
         IF the (automation-) test case does not exist, the script will:
-        - Create automation test case in qTest Manager
-        - Create test run associated with the above test case
-        - Submit test run log to the test run
+         - Create automation test case in qTest Manager
+         - Create test run associated with the above test case
+         - Submit test run log to the test run
         IF the (automaiton-) test case exists and there is no test run associate with it, the script will:
-        - Create test run associated with the test case
-        - Submit test log result to the test run
+         - Create test run associated with the test case
+         - Submit test log result to the test run
         IF the (automation-) test case and test run exist, the script will:
-        - Submit test log result to the test run
+         - Submit test log result to the test run
 
 USAGE
 
