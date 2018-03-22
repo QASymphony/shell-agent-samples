@@ -101,25 +101,25 @@ OUTPUT
     Successfully uploaded test case [13514552] with status PASS to test run TR-17
     Successfully uploaded test case [13514553] with status FAIL to test run TR-18
 ```
-# qTest automation host
+ 
+# How to execute this sample script via Shell Agent inside qTest Automation Host
+
 This section will introduce how to setup qTest Automation Integration with Shell agent
- 
-# How to use sample script via Shell Agent inside qTest Automation Host
- 
 
 1. First, download and install qTest Automation Host [here](https://support.qasymphony.com/hc/en-us/articles/115005225543-Download-Automation-Agent-Host)
-2. In qTest automation host, make sure "Shell Agent" is installed in your qTest automation agent host
-3. Add new Shell Agent with the detail configuration as below:
-### Agent Configuration for windows
-Your sample scripts is E:\shell-agent-samples\postman-nodesjs
+2. From qTest Automation Host, create an agent which is of type "Shell Agent" in your qTest Automation Host with detail configuration as below:
+
+### For windows
+Your sample scripts is at E:\shell-agent-samples\postman-nodesjs
 ![Configuration1](/postman-nodesjs/images/shell-agent.png?raw=true)
 
-### Agent Configuration for MacOS / Linux: 
-Your sample script is /Users/demo/shell-agent-samples/postman-nodesjs
+### For MacOS / Linux: 
+Your sample script is at /Users/demo/shell-agent-samples/postman-nodesjs
 ![Configuration2](/postman-nodesjs/images/shell-agent-2.png?raw=true)
-4. In qTest Manager, select a test run which is reported from sample automation project above, click 'Schedule' and choose 'Immediately upon scheduled'
+
+3. From qTest Manager, select a test run which is created from sample automation project above, click 'Schedule' and choose 'Immediately upon scheduled'
 ### Schedule
 ![Configuration3](/postman-nodesjs/images/test-run.png?raw=true)
-5. In qTest automation host, select agent to be configured in step 3, click 'Run now'. When the automation script has finished, click 'Show log' to observe all data include system field and custom field of test run / test suite in the log.
+4. In qTest Automation Host, select the Shell Agent created in step 2, click 'Run now'. When the script execution finished, click 'Show log' to view all logs include system field and custom field of test run / test suite from the log.
 
-Follow this article for more detailed instructions: [Create Shell Agent](https://support.qasymphony.com/hc/en-us/articles/115005558783-Create-Shell-Agent)
+For more detailed instructions on how to create the shell agent, follow this article: [Create Shell Agent](https://support.qasymphony.com/hc/en-us/articles/115005558783-Create-Shell-Agent)
