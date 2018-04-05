@@ -1,5 +1,5 @@
 {
-  "name": "uploadResultToQTest",
+  "name": "SubmitPostmanResultToQTest",
   "version": "1.0.0",
   "description": "Takes JSON newman output and uploads to your qTest project",
   "main": "uploadResultToQTest.js",
