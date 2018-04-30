@@ -1,9 +1,9 @@
 NAME
-    uploadNewmanToQTest
+    submitTestResultToQTest
 
 SYNOPSIS
 
-    uploadResultToQTest [options]
+    submitTestResultToQTest [options]
 
 DESCRIPTION
 
@@ -39,8 +39,6 @@ USAGE
                         {
                             email: "Elise",
                             password: "password",
-                            qtestProtocols: "https",
-                            qtestUrl: "qas.qtestnet.com",
-                            qtestPort: "443"
+                            qtestUrl: "https://qas.qtestnet.com"
                         }
 
