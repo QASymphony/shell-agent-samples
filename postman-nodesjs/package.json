@@ -10,9 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "command-line-args": "^4.0.6",
-    "request": "^2.81.0",
-    "promise": "^6.1.0",
-    "node-uuid": "^1.4.8"
+    "command-line-args": "^5.0.2",
+    "node-uuid": "^1.4.8",
+    "promise": "^8.0.1",
+    "request": "^2.85.0"
   }
 }

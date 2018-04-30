@@ -35,7 +35,7 @@ if (options.help) {
 validateCommandLineArgs(options, function (err) {
     if (err) {
         // print error to the console and exit
-        console.log(err);
+        console.log("Command line args validation error: " + err);
         process.exit(-1);
     }
 });
@@ -44,9 +44,10 @@ validateCommandLineArgs(options, function (err) {
  * loads login credentials from creds.json
  */
 var creds = JSON.parse(fs.readFileSync("creds.json", "utf8"));
-loginToQTest(creds).then(function (res) {
-    doOurBusiness(res);
-}, function (err) {
+loginToQTest(creds).then(function (accessToken) {
+    doOurBusiness(accessToken);
+}).catch(function (err) {
+    console.log(err);
     handleErrorAndExit(err);
 });
 
@@ -72,7 +73,6 @@ function loginToQTest(creds) {
     return new Promise(function (resolved, reject) {
         // note the ":" at the end of the email, it is a MUST
         var auth = "Basic " + new Buffer(creds.email + ":").toString("base64");
-
         var opts = {
             url: creds.qtestUrl + "/oauth/token",
             headers: {
@@ -107,9 +107,12 @@ function parseResultsFile() {
     console.log("projectId: " + options.projectId);
     console.log("jobStatus: " + options.jobStatus);
     console.log("projectName: " + options.projectName);
-    if (options.hasOwnProperty("dynamic"))
+    if (options.hasOwnProperty("dynamic")) {
         console.log("dynamic: " + options.dynamic);
+    }
 
+    // this function does nothing here but shows
+    // how to access magic variables used by the automation host
     getQTEObjectFromAgentParameterPath();
 
     var executionResults = [];
@@ -154,16 +157,20 @@ function parseResultsFile() {
     return executionResults;
 }
 
-function doOurBusiness(authToken) {
+function doOurBusiness(accessToken) {
     var customFields;
     var executionResults = parseResultsFile();
 
-    getFieldsOfTestCase(authToken).then(function (res) {
+    getFieldsOfTestCase(accessToken).then(function (res) {
         customFields = res;
-        uploadTestResultsToQTest(executionResults, authToken, customFields);
-    }, function (err) {
+        uploadTestResultsToQTest(executionResults, accessToken, customFields)
+        .then(function() {
+            console.log("uploadTestResultsToQTest finished.");
+        }).catch(function(err) {
+            console.log ("uploadTestResultsToQTest error: " + err);
+        });
+    }).catch(function(err) {
         handleErrorAndExit("Error: " + err);
-    }).then(function (res) {
     });
 }
 
@@ -180,6 +187,7 @@ function uploadTestResultsToQTest(executionResults, token, customFields) {
                 }
                 else {
                     console.log("Failed to submit test log");
+                    resolved();
                 }
             });
         };
@@ -251,14 +259,14 @@ function submitTestResultsToQTest(testRun, listTestRuns, token) {
     });
 }
 
-function getFieldsOfTestCase(authToken) {
+function getFieldsOfTestCase(accessToken) {
     return new Promise(function (resolved, reject) {
         var opts = {
             url: creds.qtestUrl + "/api/v3/projects/" + options.projectId + "/settings/test-cases/fields",
             json: true,
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "bearer " + authToken
+                "Authorization": "bearer " + accessToken
             }
         };
         request.get(opts, function (err, response, body) {
