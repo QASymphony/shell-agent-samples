@@ -6,7 +6,7 @@ var promise = require("promise");
 const optionDefinitions = [
     { name: "file", alias: "f", type: String },
     { name: "format", alias: "m", type: String, defaultValue: "newman-json" },
-    { name: "usetestcaseid", alias: "i", type: Boolean, defaultOption: false },
+    { name: "usetestcaseid", alias: "i", type: Boolean, defaultOption: true },
     { name: "regex", alias: "r", type: String, defaultValue: "(.*)" },
     { name: "parentId", alias: "p", type: String },
     { name: "parentType", alias: "t", type: String, defaultValue: "root" },
