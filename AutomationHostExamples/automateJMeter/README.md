@@ -85,7 +85,7 @@ For this example, we will not be using a GitHub sample instead the .jmx file wil
 
  ![](https://github.com/sanjayjohn/shell-agent-samples/tree/master/AutomationHostExamples/images/add.png)
 
-Agent Name: Name
+**Agent Name:** Name
 
 **qTest Manager Project:** Choose your project
 
