@@ -67,7 +67,7 @@ These commands will install the necessary modules required to run the python scr
 
 **qtest\_url:** The personal url that is used to access QASymphony API
 
- ![](https://github.com/sanjayjohn/shell-agent-samples/tree/master/AutomationHostExamples/images/conf.png)
+ ![](../images/conf.png)
 
 Open the conf.json file and update with your personal information. Enter your own qTest URL and API Token found in the qTest Manager Environment.
 
@@ -79,11 +79,11 @@ For this example, we will not be using a GitHub sample instead the .jmx file wil
 
 1. Navigate to your Automation Host
 
- ![](https://github.com/sanjayjohn/shell-agent-samples/tree/master/AutomationHostExamples/images/autohost.png)
+ ![](../images/autohost.png)
 
 2. Add a new agent and fill out the path directory and enter the script into the kick off script field
 
- ![](https://github.com/sanjayjohn/shell-agent-samples/tree/master/AutomationHostExamples/images/add.png)
+ ![](../images/add.png)
 
 **Agent Name:** Name
 
@@ -93,7 +93,7 @@ For this example, we will not be using a GitHub sample instead the .jmx file wil
 
 **Directory:** The directory containing your scripts and shell agent (Directory where the scripts were cloned)
 
-Set Allocated Execution Time: Amount of time you expect the script to take to execute in minutes
+**Set Allocated Execution Time:** Amount of time you expect the script to take to execute in minutes
 
 **Kick-off scripts:** The file path to your shell script. This shell scripts takes in two inputs, one for using git and the second for updating your current test cycle.
 
@@ -115,7 +115,7 @@ In this example we will only be updating our test cycle since the local reposito
 
 ## For Mac Users (Use run.sh):
 
-  ![](https://github.com/sanjayjohn/shell-agent-samples/tree/master/AutomationHostExamples/images/jmeterhost.png)
+  ![](../images/jmeterhost.png)
 
 
 Note for Mac Users: Make sure the shell script is executable by running the command shown below in the shell scripts directory:
@@ -127,41 +127,41 @@ This command gives the shell script permission to run.
 
 ## For Windows Users (Use run.bat):
 
-   ![](https://github.com/sanjayjohn/shell-agent-samples/tree/master/AutomationHostExamples/images/windowhost.png)
+   ![](../images/windowhost.png)
 
 
 ## Running Shell Script:
 
 Start the shell script by pressing yellow button under the action text field, which will upload all of the tests cases to qTest
 
-   ![](https://github.com/sanjayjohn/shell-agent-samples/tree/master/AutomationHostExamples/images/runhost.png)
+   ![](../images/runhost.png)
 
 
 ## Scheduling Tests:
 
 1.  Login into qTest Manager, go to the Test Execution tab, and there should be a test cycle under your project called &quot;Jmeter Automated Tests&quot;
 
-   ![](https://github.com/sanjayjohn/shell-agent-samples/tree/master/AutomationHostExamples/images/jmetercycle.png)
+   ![](../images/jmetercycle.png)
 
 
 2. Click on the test cycle and it should show all of the tests that were run through the maven build and their statuses.
 
-   ![](https://github.com/sanjayjohn/shell-agent-samples/tree/master/AutomationHostExamples/images/jmetertests.png)
+   ![](../images/jmetertests.png)
 
 
 3. To schedule specific tests check the ones that you want to schedule and click on schedule under the &quot;More&quot; drop down menu.
 
-   ![](https://github.com/sanjayjohn/shell-agent-samples/tree/master/AutomationHostExamples/images/scheduletests.png)
+   ![](../images/scheduletests.png)
 
 
 4. Select the shell agent from under the drop down menu for agent, and click ok
 
-   ![](https://github.com/sanjayjohn/shell-agent-samples/tree/master/AutomationHostExamples/images/chooseagent.png)
+   ![](../images/chooseagent.png)
 
 
 5. Now that the tests have been scheduled to start them go back to the Automation Host and click Poll Now.
 
-  ![](https://github.com/sanjayjohn/shell-agent-samples/tree/master/AutomationHostExamples/images/pollnow.png)
+  ![](../images/pollnow.png)
 
  
 The shell script will only run the scheduled tests and upload those results to qTest Manager
@@ -170,5 +170,5 @@ The shell script will only run the scheduled tests and upload those results to q
 
 When setting up the Test Plan for Jmeter, make sure to configure the aggregate report for each thread group to &quot;Save as XML&quot; as shown below. This configuration will create a results.xml that the parser will be able to read and upload results to qTest Manager
 
-![](https://github.com/sanjayjohn/shell-agent-samples/tree/master/AutomationHostExamples/images/jmeterreport.png)
+![](../images/jmeterreport.png)
  
