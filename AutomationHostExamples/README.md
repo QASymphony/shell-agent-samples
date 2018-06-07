@@ -15,14 +15,14 @@ The Automation Installation Guide can be found here: [https://support.qasymphony
 
 2.    Acquire personal API Token which can be found under the resource button at the top right of the browser, under the API &amp; SDK Section.
 
- ![](https://github.com/sanjayjohn/shell-agent-samples/tree/master/AutomationHostExamples/images/apitoken.png)
+ ![](images/apitoken.png)
 
 Your qTest URL and personal API Token will be needed for configuration in the following examples.
 
 3.    Turn ON Automation Integration which is under the Gear Icon
 
-![](https://github.com/sanjayjohn/shell-agent-samples/tree/master/AutomationHostExamples/images/autohostsettings.png)
-![](https://github.com/sanjayjohn/shell-agent-samples/tree/master/AutomationHostExamples/images/statuson.png)
+![](images/autohostsettings.png)
+![](images/statuson.png)
 
 ## Automation Host Examples:
 
