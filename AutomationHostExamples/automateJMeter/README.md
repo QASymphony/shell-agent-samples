@@ -73,7 +73,7 @@ Open the conf.json file and update with your personal information. Enter your ow
 
 For this example, we will not be using a GitHub sample instead the .jmx file will be found in the local repository folder, as documented in the conf.json sample file below. For the git url you do not have to modify it, and for local repository use the information shown below. Make sure to use your own api token and url or the demo will not work.
 
-![](https://github.com/sanjayjohn/shell-agent-samples/tree/master/AutomationHostExamples/images/jmeterconf.png)
+![](../images/jmeterconf.png)
 
 ## Set Up Automation:
 
