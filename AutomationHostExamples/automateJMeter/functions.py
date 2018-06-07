@@ -29,15 +29,6 @@ def get_config():
 
 
 def create_test_logs_json(runName, stepName, status, note):
-    if runName is None:
-        runName = ''
-    if stepName is None:
-        stepName = ''
-    if status is None:
-        status = ''
-    if note is None:
-        note = ''
-
     body = {'exe_start_date': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
             'exe_end_date': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
             'note': note,

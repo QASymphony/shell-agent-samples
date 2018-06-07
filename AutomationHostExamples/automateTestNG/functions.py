@@ -30,14 +30,6 @@ def get_config():
 
 def create_test_logs_json(testName, runName, stepName, status, note, log, start, end):
     attachment = []
-    if runName is None:
-        runName = ''
-    if stepName is None:
-        stepName = ''
-    if status is None:
-        status = ''
-    if note is None:
-        note = ''
     if start is None:
         start = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
     if end is None:

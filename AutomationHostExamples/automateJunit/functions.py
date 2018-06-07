@@ -30,14 +30,6 @@ def get_config():
 
 def create_test_logs_json(runName, stepName, status, note, log):
     attachment = []
-    if runName is None:
-        runName = ''
-    if stepName is None:
-        stepName = ''
-    if status is None:
-        status = ''
-    if note is None:
-        note = ''
     if log is not '':
         value = {'name': stepName, 'content_type': 'application/json', 'data': log}
         attachment.append(value)

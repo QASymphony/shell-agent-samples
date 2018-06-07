@@ -72,14 +72,6 @@ def post_all_tests():
 
 
 def create_test_logs_json(testSuite, runName, stepName, status, note, start, end, stepLog):
-    if runName is None:
-        runName = ''
-    if stepName is None:
-        stepName = ''
-    if status is None:
-        status = ''
-    if note is None:
-        note = ''
     if start is None:
         start = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
     if end is None:
