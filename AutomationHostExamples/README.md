@@ -11,7 +11,7 @@ The Automation Installation Guide can be found here: [https://support.qasymphony
 
 1.    Acquire your qTest Manager base URL as shown below
 
-  ![](https://github.com/sanjayjohn/shell-agent-samples/tree/master/AutomationHostExamples/images/baseurl.png)
+  ![](images/baseurl.png)
 
 2.    Acquire personal API Token which can be found under the resource button at the top right of the browser, under the API &amp; SDK Section.
 
