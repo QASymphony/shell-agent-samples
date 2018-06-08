@@ -164,3 +164,7 @@ Start the shell script by pressing yellow button under the action text field, wh
  ![](../images/pollnow.png)
 
 The shell script will only run the scheduled tests and upload those results to qTest Manager
+
+## Note:
+
+The TestNG parser reads from testng-results.xml file, which is located in the target/surefire-reports directory. This directory gets created during the Maven build. Make sure that the testng-results.xml file gets created during the build for the parser to be able to find the output results.
