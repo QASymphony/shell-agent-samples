@@ -31,14 +31,19 @@ def get_automation_content_id(url, api_token):
 def get_test_runs():
     qtest_config = get_config()
     api_token = qtest_config["qtest_api_token"]
+    qTestUrl = qtest_config["qtest_url"]
     projectid = os.environ["PROJECT_ID"]
-    URL = "https://demo.qtestnet.com/api/v3/projects/{}/settings/test-cases/fields"
-    URL = URL.format(projectid)
+    URL = "{}/api/v3/projects/{}/settings/test-cases/fields"
+    URL = URL.format(qTestUrl, projectid)
     API = api_token
     AutomationContentFieldId = get_automation_content_id(URL, API)
 
     dictionary = {}
-
+    APITOKEN = API
+    GetTCURL = "{}/api/v3/projects/" + projectid + "/test-cases/"
+    GetTRURL = "{}/api/v3/projects/" + projectid + "/test-runs/"
+    GetTCURL = GetTCURL.format(qTestUrl)
+    GetTRURL = GetTRURL.format(qTestUrl)
     AutomationContents = ""
 
     if ('QTE_SCHEDULED_TX_DATA' in os.environ):
