@@ -2,6 +2,7 @@ import os
 import requests
 import json
 from pprint import pprint
+from functions import get_config
 
 
 def get_automation_content_id(url, api_token):
@@ -28,15 +29,14 @@ def get_automation_content_id(url, api_token):
 
 
 def get_test_runs():
+    qtest_config = get_config()
+    api_token = qtest_config["qtest_api_token"]
     projectid = os.environ["PROJECT_ID"]
     URL = "https://demo.qtestnet.com/api/v3/projects/{}/settings/test-cases/fields"
     URL = URL.format(projectid)
-    API = "ZGVtb3xzYW5qYXlqb2huQHFhc3ltcGhvbnkuY29tOjE1NTgwMTc5MjkzMTM6YWExYThkNmVmMmE4NmE0YmUxY2EzYjNlODA5MTU1YjQ"
+    API = api_token
     AutomationContentFieldId = get_automation_content_id(URL, API)
 
-    APITOKEN = "ZGVtb3xzYW5qYXlqb2huQHFhc3ltcGhvbnkuY29tOjE1NTgwMTc5MjkzMTM6YWExYThkNmVmMmE4NmE0YmUxY2EzYjNlODA5MTU1YjQ"
-    GetTCURL = "https://demo.qtestnet.com/api/v3/projects/" + projectid + "/test-cases/"
-    GetTRURL = "https://demo.qtestnet.com/api/v3/projects/" + projectid + "/test-runs/"
     dictionary = {}
 
     AutomationContents = ""

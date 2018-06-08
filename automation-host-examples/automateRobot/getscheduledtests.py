@@ -2,7 +2,6 @@ import os
 import requests
 import json
 from pprint import pprint
-from functions import get_config
 
 
 def get_automation_content_id(url, api_token):
@@ -29,15 +28,16 @@ def get_automation_content_id(url, api_token):
 
 
 def get_test_runs():
-    qtest_config = get_config()
-    api_token = qtest_config["qtest_api_token"]
     projectid = os.environ["PROJECT_ID"]
     URL = "https://demo.qtestnet.com/api/v3/projects/{}/settings/test-cases/fields"
     URL = URL.format(projectid)
-    API = api_token
+    API = "ZGVtb3xzYW5qYXlqb2huQHFhc3ltcGhvbnkuY29tOjE1NTgwMTc5MjkzMTM6YWExYThkNmVmMmE4NmE0YmUxY2EzYjNlODA5MTU1YjQ"
     AutomationContentFieldId = get_automation_content_id(URL, API)
 
-    dictionary = {}
+    APITOKEN = "ZGVtb3xzYW5qYXlqb2huQHFhc3ltcGhvbnkuY29tOjE1NTgwMTc5MjkzMTM6YWExYThkNmVmMmE4NmE0YmUxY2EzYjNlODA5MTU1YjQ"
+    GetTCURL = "https://demo.qtestnet.com/api/v3/projects/" + projectid + "/test-cases/"
+    GetTRURL = "https://demo.qtestnet.com/api/v3/projects/" + projectid + "/test-runs/"
+    dictionary = []
 
     AutomationContents = ""
 
@@ -79,19 +79,15 @@ def get_test_runs():
                                     index = field['field_value'].index('#')
                                     name = field['field_value'][index + 1: len(field['field_value'])]
                                     className = field['field_value'][0:index]
-                                    if className in dictionary:
-                                        dictionary[className].append(name)
-                                    else:
-                                        dictionary[className] = [name]
+                                    className.replace(" ", "_")
+                                    dictionary.append(className)
                                 else:
                                     AutomationContents = AutomationContents + field["field_value"]
                                     index = field['field_value'].index('#')
                                     name = field['field_value'][index + 1: len(field['field_value'])]
                                     className = field['field_value'][0:index]
-                                    if className in dictionary:
-                                        dictionary[className].append(name)
-                                    else:
-                                        dictionary[className] = [name]
+                                    className.replace(" ", "_")
+                                    dictionary.append(className)
 
                     else:
                         myTestCaseResponse.raise_for_status()
