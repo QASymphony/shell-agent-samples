@@ -36,6 +36,8 @@ Enter the following command to get Apache JMeter
 
  `pip --version`
 
+ Note: pip3 will work as well. Try `pip3 --version`
+
 2. If pip is not installed, run the following command to install pip:
 
  `python -m -ensurepip --default-pip`
@@ -46,13 +48,13 @@ More information about downloading pip can be found at [https://packaging.python
 
 `pip install requests`
 
-`pip install urllib3`
-
 `pip install xml.etree.ElementTree`
 
 `pip install beautifulsoup4`
 
 `pip install lxml`
+
+Note: If using pip3 run commands with pip3 instead e.g. `pip3 install requests`
 
 These commands will install the necessary modules required to run the python scripts. The modules are used to send requests to the API, read json configuration files, parse xml documents, and upload files to qTest.
 
@@ -61,7 +63,7 @@ These commands will install the necessary modules required to run the python scr
 
 **git\_url:** The shell script uses the url to clone a repository and send pull requests everytime it runs if -git input is used
 
-**local\_repository:** The folder containing the .jmx file. The shell script will use this to know where to run the tests
+**local\_repository:** The folder containing the .jmx file. The shell script will use this to know where to run the tests. Make sure to place this folder in the same directory as the the python and shell scripts.
 
 **qtest\_api\_token:** The token used to authorize the connection to qTest Manager
 
@@ -102,8 +104,6 @@ For this example, we will not be using a GitHub sample instead the .jmx file wil
 **-git**    Uses GitHub to clone a test case repository and send pull requests every time shell script is run
 
 **-update** Updates an existing test cycle or create a new test cycle if first test run
-
-(To create a new test cycle every time script is run do not use this argument)
 
 To run the shell agent without using GitHub or without updating the existing test cycle do not include this parameters in the kick off scripts section
 

@@ -1,4 +1,4 @@
-#TestNG with Maven Build Automation
+# TestNG with Maven Build Automation
 
 ## Overview:
 
@@ -30,11 +30,13 @@ Enter the following command to get Apache Maven
 
 `brew install maven`
 
-### From Terminal (Mac) or Command Prompt (Windows):**
+### From Terminal (Mac) or Command Prompt (Windows):
 
 1. Make sure pip was installed correctly with python on your machine by running the following command. It should output the pip version:
 
  `pip --version`
+
+ Note: pip3 will work as well. Try `pip3 --version`
 
 2. If pip is not installed, run the following command to install pip:
 
@@ -46,18 +48,18 @@ More information about downloading pip can be found at [https://packaging.python
 
 `pip install requests`
 
-`pip install urllib3`
-
 `pip install beautifulsoup4`
 
 `pip install lxml`
 
 `pip install pybase64`
 
+Note: If using pip3 run commands with pip3 instead e.g. `pip3 install requests`
+
 These commands will install the necessary modules required to run the python scripts. The modules are used to send requests to the API, read json configuration files, parse xml documents, and upload files to qTest.
 
 
-## Update Configuration File:**
+## Update Configuration File:
 
 **git\_url:** The shell script uses the url to clone a repository and send pull requests everytime it runs if -git input is used
 
@@ -105,9 +107,7 @@ For this example we will be pulling a TestNg Sample Test from QASymphony GitHub&
 
 **-update** Updates an existing test cycle or create a new test cycle if first test run
 
-(To create a new test cycle every time script is run do not use this argument)
-
-To run the shell agent without using GitHub or without updating the existing test cycle do not include this parameters in the kick off scripts section
+To run the shell agent without using GitHub or without updating the existing test cycle do not include this parameters in the kick off scripts section. An example of not using -git is used in the JMeter Automation example.
 
 
 
