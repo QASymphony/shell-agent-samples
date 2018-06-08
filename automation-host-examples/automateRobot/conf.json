@@ -1,6 +1,0 @@
-{
-  "git_url": "https://sanjayjohn1@bitbucket.org/robotframework/robotdemo.git",
-  "local_repository": "robotdemo",
-  "qtest_api_token": "<Your API Token>",
-  "qtest_url": "<Your qTest URL>"
-}
