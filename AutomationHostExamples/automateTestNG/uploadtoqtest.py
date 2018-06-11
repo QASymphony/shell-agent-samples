@@ -59,7 +59,7 @@ def post_test_log():
     testLogUrl = baseUrl.format(qTestUrl, projectId)
     try:
         update = sys.argv[3]
-        if update == 'true':
+        if update == 'update':
             testCycle = get_test_cycle()
         else:
             testCycle = post_test_cycle()
