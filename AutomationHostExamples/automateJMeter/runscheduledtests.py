@@ -1,8 +1,9 @@
 import os
+import sys
 
 def runjmetertests():
     try:
-        directory = 'jmeter-sample'
+        directory = sys.argv[1]
     except:
         print("Error: Enter a valid local repository")
         return "None"

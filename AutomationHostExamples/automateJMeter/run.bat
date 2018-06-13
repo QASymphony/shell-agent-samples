@@ -34,7 +34,7 @@ IF  %GIT% == "yes" (
 echo RUNNING TESTS
 
 for /f tokens^=*^ delims^=^ eol^= %%i in ('call python getscheduledtests.py') do set TEST=%%i
-for /f tokens^=*^ delims^=^ eol^= %%i in ('call python runscheduledtests.py "%TEST%"') do set JMXFILE=%%i
+for /f tokens^=*^ delims^=^ eol^= %%i in ('call python runscheduledtests.py "%LOCALREPO%"') do set JMXFILE=%%i
 
 IF "%JMXFILE%" == "None" (
 
