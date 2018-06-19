@@ -56,7 +56,7 @@ TEST=$(python3 getscheduledtests.py)
 
 if [ "${TEST}" == "None" ]
 then
-    robot "${LOCALREPO}"
+    robot --nostatusrc "${LOCALREPO}"
 
     echo UPLOADING TO qTest
 
@@ -71,7 +71,7 @@ else
     for VALUE in $TESTCASES
     do
         echo "${VALUE}"
-        robot -t "$VALUE" "${LOCALREPO}"
+        robot --nostatusrc -t "$VALUE" "${LOCALREPO}"
         python3 uploadtoqtest.py "$VALUE" "${LOCALREPO}" "${UPDATE}"
     done
 fi
