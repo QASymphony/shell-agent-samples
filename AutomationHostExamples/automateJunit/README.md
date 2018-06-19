@@ -61,7 +61,7 @@ These commands will install the necessary modules required to run the python scr
 
 ## Update Configuration File:
 
-**git\_url:** The shell script uses the url to clone a repository and send pull requests everytime it runs if -git input is used
+**git\_url:** The shell script uses the url to clone a repository and send pull requests everytime it runs if -g input is used
 
 **local\_repository:** The folder containing the test cases. The shell script will use this to know where to run the maven build. Make sure to place this folder in the same directory as the the python and shell scripts.
 
@@ -101,15 +101,17 @@ For this example we will be pulling a JUnit Sample Test from QASymphony GitHub&#
 
 ### Shell Script Inputs:
 
-**-git**    Uses GitHub to clone a test case repository and send pull requests every time shell script is run
+**-g**    Uses GitHub to clone a test case repository and send pull requests every time shell script is run
 
-**-update** Updates an existing test cycle or create a new test cycle if first test run
+**-u** Updates an existing test cycle or create a new test cycle if first test run
 
-To run the shell agent without using GitHub or without updating the existing test cycle do not include these parameters in the kick off scripts section. An example of not using -git is used in the JMeter Automation example.
+**-b <"branch name">** If the Github parameter is used, this input allows the user to clone the repository and make a branch that they specify with the input.
+
+To run the shell agent without using GitHub or without updating the existing test cycle do not include these parameters in the kick off scripts section. An example of not using -g is used in the JMeter Automation example.
 
 
 
-In this example we will be pulling tests from GitHub and updating our test cycle, so the -git and -update arguments are included and shown below.
+In this example we will be pulling tests from GitHub and updating our test cycle, so the -g and -u arguments are included and shown below. The -b argument is used with "develop" to denote the branch that we will be creating.
 
 
 

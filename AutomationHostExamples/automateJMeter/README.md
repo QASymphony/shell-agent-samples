@@ -61,7 +61,7 @@ These commands will install the necessary modules required to run the python scr
 
 ## Update Configuration File:
 
-**git\_url:** The shell script uses the url to clone a repository and send pull requests everytime it runs if -git input is used
+**git\_url:** The shell script uses the url to clone a repository and send pull requests everytime it runs if -g input is used
 
 **local\_repository:** The folder containing the .jmx file. The shell script will use this to know where to run the tests. Make sure to place this folder in the same directory as the the python and shell scripts.
 
@@ -101,11 +101,13 @@ For this example, we will not be using a GitHub sample instead the .jmx file wil
 
 ### Shell Script Inputs:
 
-**-git**    Uses GitHub to clone a test case repository and send pull requests every time shell script is run
+**-g** Uses GitHub to clone a test case repository and send pull requests every time shell script is run
 
-**-update** Updates an existing test cycle or create a new test cycle if first test run
+**-u** Updates an existing test cycle or create a new test cycle if first test run
 
-To run the shell agent without using GitHub or without updating the existing test cycle do not include this parameters in the kick off scripts section
+**-b <"branch name">** If the Github parameter is used, this input allows the user to clone the repository and make a branch that they specify with the input. Examples of branch use can be found in automateJunits.
+
+To run the shell agent without using GitHub or without updating the existing test cycle do not include these parameters in the kick off scripts section
 
 
 
@@ -127,7 +129,7 @@ This command gives the shell script permission to run.
 
 ## For Windows Users (Use run.bat):
 
-   ![](../images/windowhost.png)
+   ![](../images/windowshost.png)
 
 
 ## Running Shell Script:

@@ -103,11 +103,13 @@ For this example we will be pulling a TestNg Sample Test from QASymphony GitHub&
 
 ### Shell Script Inputs:
 
-**-git**    Uses GitHub to clone a test case repository and send pull requests every time shell script is run
+**-g**    Uses GitHub to clone a test case repository and send pull requests every time shell script is run
 
-**-update** Updates an existing test cycle or create a new test cycle if first test run
+**-u** Updates an existing test cycle or create a new test cycle if first test run
 
-To run the shell agent without using GitHub or without updating the existing test cycle do not include this parameters in the kick off scripts section. An example of not using -git is used in the JMeter Automation example.
+**-b <"branch name">** If the Github parameter is used, this input allows the user to clone the repository and make a branch that they specify with the input. An example of using -b is shown in automateJunit.
+
+To run the shell agent without using GitHub or without updating the existing test cycle do not include this parameters in the kick off scripts section. An example of not using -g is used in the JMeter Automation example.
 
 
 

@@ -2,33 +2,43 @@
 rem This is a utility to parse JUnit/XUnit XML files into JSON formats required by qTest APIs.
 
 
-IF "%~1" == "-git" (
-    set GIT="yes"
-) ELSE (
-    IF "%~2" == "-git" (
-        set GIT="yes"
-    ) ELSE (
-        set GIT="no"
-    )
-)
+SET UPDATE="false"
+SET GIT="no"
+SET BRANCH=""
 
-IF "%~1" == "-update" (
-    set UPDATE="update"
-) ELSE (
-    IF "%~2" == "-update" (
-        set UPDATE="update"
-    ) ELSE (
-        set UPDATE="false"
+:loop
+IF NOT "%1"=="" (
+    IF "%1"=="-g" (
+        SET GIT="yes"
+        SHIFT
+        GOTO :loop
     )
+    IF "%1"=="-u" (
+        SET UPDATE="update"
+        SHIFT
+        GOTO :loop
+    )
+    IF "%1"=="-b" (
+        SET BRANCH=%2
+        SHIFT
+        GOTO :loop
+    )
+    SHIFT
+    GOTO :loop
 )
-
 
 for /f tokens^=*^ delims^=^ eol^= %%i in ('call python getlocalrepo.py') do set LOCALREPO=%%i
 for /f tokens^=*^ delims^=^ eol^= %%i in ('call python getrepourl.py') do set REPOSRC=%%i
 
 IF  %GIT% == "yes" (
-    echo UPDATING LOCAL REPOSITORY
-    call git clone %REPOSRC% || pushd %LOCALREPO% & call git pull & popd
+    echo FETCHING TESTS FROM GITHUB
+    IF %BRANCH% == "" (
+        echo UPDATING LOCAL REPOSITORY
+        call git clone %REPOSRC% || pushd %LOCALREPO% & call git pull & popd
+    ) ELSE (
+        echo UPDATING LOCAL REPOSITORY AND CREATING BRANCH
+        call git clone %REPOSRC% || pushd %LOCALREPO% & call git checkout -b %BRANCH% || call git checkout %BRANCH% & call git rebase master & popd
+    )
 )
 
 echo RUNNING TESTS
