@@ -149,6 +149,6 @@ The shell script will only run the scheduled tests and upload those results to q
 
 ## Note:
 
-The Nunit parser reads from TestResult.xml file, which is located in the bin/Debug directory. Ensure that the .dll file is located in this directory before running the shell script. In addition, make sure the name of the directory where the project is located is the same name as the .csproj being built. In the example shown below, "video-recorder" in the name of the local directory, and it is the same name as the .csproj called "video-recorder.csproj"
+The Nunit parser reads from TestResult.xml file, which is located in the bin/Debug directory. Ensure that the .dll file is located in this directory before running the shell script. In addition, make sure the name of the directory where the project is located is the same name as the .csproj being built. In the example shown below, "SeleniumDemoProject" in the name of the local directory, and it is the same name as the .csproj called "SeleniumDemoProject.csproj"
 
 ![](../images/seleniumfilename.png)
