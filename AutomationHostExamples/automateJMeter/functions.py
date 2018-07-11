@@ -43,7 +43,15 @@ def create_test_logs_json(runName, stepName, status, note):
 def jmeter_parser():
     path = sys.argv[1]
     path = './' + path
-    root = xml.etree.ElementTree.parse(path + '/result.xml').getroot()
+    files = os.listdir(path)
+    maxTime = 0
+    currFile = ''
+    for file in files:
+        if file.endswith('.xml'):
+            mTime = os.stat(path + "/" + file).st_mtime
+            if mTime > maxTime:
+                currFile = path + "/" + file
+    root = xml.etree.ElementTree.parse(currFile).getroot()
     message = ''
     body = []
     for child in root:

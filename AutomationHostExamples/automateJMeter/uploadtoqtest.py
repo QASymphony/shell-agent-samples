@@ -15,9 +15,16 @@ def jmeter_parser(methodName):
         from bs4 import BeautifulSoup
     path = sys.argv[2]
     path = './' + path
-    xml = open(path + '/result.xml')
+    files = os.listdir(path)
+    maxTime = 0
+    currFile = ''
+    for file in files:
+        if file.endswith('.xml'):
+            mTime = os.stat(path + "/" + file).st_mtime
+            if mTime > maxTime:
+                currFile = path + "/" + file
+    xml = open(currFile)
     soup = BeautifulSoup(xml, 'xml')
-
     message = ''
     tag = soup.find(attrs={"lb": methodName})
     if tag is not None:
