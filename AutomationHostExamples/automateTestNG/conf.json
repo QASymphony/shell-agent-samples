@@ -1,6 +1,0 @@
-{
-  "git_url": "https://github.com/QASymphony/testng-sample.git",
-  "local_repository": "testng-sample",
-  "qtest_api_token": "<Your API Token>",
-  "qtest_url": "<Your qTest URL>"
-}

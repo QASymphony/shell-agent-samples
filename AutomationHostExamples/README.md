@@ -28,8 +28,8 @@ Your qTest URL and personal API Token will be needed for configuration in the fo
 
 Junit Maven Shell Agent
 
-TestNG Maven Shell Agent
-
 Robot Shell Agent
 
 JMeter Shell Agent
+
+NUnit Selenium Agent
