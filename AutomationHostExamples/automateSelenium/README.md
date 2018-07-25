@@ -128,7 +128,7 @@ Start the shell script by pressing yellow button under the action text field, wh
   ![](../images/seleniumcycle.png)
 
 
-2. Click on the test cycle and it should show all of the tests that were run through the maven build and their statuses.
+2. Click on the test cycle and it should show all of the tests that were run through the Selenium build and their statuses.
 
 ![](../images/seleniumtests.png)
 

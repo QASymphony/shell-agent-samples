@@ -20,7 +20,7 @@ Before running the automation host script ensure that all environmental variable
 
 Mac:
 
-Use Homebrew to install Python and Maven. Steps for installing Homebrew can be found at [https://brew.sh](https://brew.sh)
+Use Homebrew to install Python and Jmeter. Steps for installing Homebrew can be found at [https://brew.sh](https://brew.sh)
 
 After installing Homebrew run this following command to get Python3:
 
@@ -146,7 +146,7 @@ Start the shell script by pressing yellow button under the action text field, wh
    ![](../images/jmetercycle.png)
 
 
-2. Click on the test cycle and it should show all of the tests that were run through the maven build and their statuses.
+2. Click on the test cycle and it should show all of the tests that were run through the Jmeter build and their statuses.
 
    ![](../images/jmetertests.png)
 

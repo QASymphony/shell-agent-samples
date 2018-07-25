@@ -60,7 +60,7 @@ These commands will install the necessary modules required to run the python scr
 
 **git\_url:** The shell script uses the url to clone a repository and send pull requests on use
 
-**local\_repository:** The folder containing the test cases. The shell script will use this to know where to run the maven build. Make sure to place this folder in the same directory as the the python and shell scripts.
+**local\_repository:** The folder containing the test cases. The shell script will use this to know where to run the Robot build. Make sure to place this folder in the same directory as the the python and shell scripts.
 
 **qtest\_api\_token:** The token used to authorize the connection to qTest Manager
 
@@ -137,7 +137,7 @@ Start the shell script by pressing yellow button under the action text field, wh
 
  ![](../images/robotcycle.png)
 
-2. Click on the test cycle and it should show all of the tests that were run through the maven build and their statuses.
+2. Click on the test cycle and it should show all of the tests that were run through the Robot build and their statuses.
 
  ![](../images/robottests.png)
 
