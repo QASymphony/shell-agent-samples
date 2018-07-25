@@ -250,9 +250,10 @@ def GetRuns(suiteId):
                             m = re.search('test-cases/(\d+)\?versionId', link['href'])
                             tcIds.append(m.group(1))
                             run['tcid'] = m.group(1)
-
-                            tcMatch = testcases[run['tcid']]
-                            existingRuns[tcMatch['automationcontent']] = run
+                            #Avoid failures when initial test run fails
+                            if run['tcid'] in testcases:
+                                tcMatch = testcases[run['tcid']]
+                                existingRuns[tcMatch['automationcontent']] = run
 
         return existingRuns
 
@@ -303,10 +304,10 @@ def CreateLog(testResult, testRunId):
     note = ""
 
     stepLogObj = []
-    pprint (testResult)
+    
+    #Add a step count to avoid failures with test step and test status 
+    step_count = 0;
     for step in testResult['steps']:
-
-
         
         if('status' in step):
             if(step['status'] == 'failed'):
@@ -317,9 +318,11 @@ def CreateLog(testResult, testRunId):
                 "description": step['description'],
                 "expected_result": step['expected'],
                 "status": step['status']
+                "order": step_count
             }
 
         stepLogObj.append(stepLog)
+        step_
 
     body = {
         "status" : parentStatus,
@@ -327,7 +330,7 @@ def CreateLog(testResult, testRunId):
         "exe_end_date" : testStart,
         "automation_content" : testResult['automationcontent'],
         "note":note,
-        "test_logs": stepLogObj
+        "test_step_logs": stepLogObj
     }
 
     dbody = json.dumps(body)

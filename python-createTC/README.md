@@ -1,4 +1,4 @@
-# Execute a Jenkins Job by Curl
+# Execute a Python Behave Test and upload Test Cases and Results to qTest
 
 SETUP
 
@@ -30,3 +30,9 @@ DESCRIPTION
         createTCAndUploadResults.py
 
         1. This script will create Test Cases if they don't exist
+
+    Execute in your shell script with the following command
+
+        Directory: /path/to/this/script/or/working/directory
+        Allocated time: 0
+        Kick-off script: /path/to/this/shell.sh $QTE.projectId RL-2 AutomationSuite
