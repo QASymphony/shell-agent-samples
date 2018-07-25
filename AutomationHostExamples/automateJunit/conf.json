@@ -1,0 +1,6 @@
+{
+  "git_url": "https://github.com/QASymphony/junit-sample.git",
+  "local_repository": "junit-sample",
+  "qtest_api_token": "<Your API Token>",
+  "qtest_url": "<Your qTest URL>"
+}

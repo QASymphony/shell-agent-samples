@@ -1,0 +1,6 @@
+{
+  "git_url": "<Your GitHub Web URL>",
+  "local_repository": "jmeter-sample",
+  "qtest_api_token": "<Your API Token>",
+  "qtest_url": "<Your qTest URL>"
+}
