@@ -194,7 +194,7 @@ def get_test_cycle():
     testcycleId = None
     for attrib in string['items']:
         name = attrib.get('name')
-        if name == "Jmeter Automated Tests":
+        if name == "Selenium Automated Tests":
             testcycleId = attrib.get('id')
     if testcycleId is None:
         testcycleId = post_test_cycle()
