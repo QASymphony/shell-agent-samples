@@ -164,15 +164,13 @@ def get_test_cycle():
     qTestUrl = qtest_config["qtest_url"]
     projectId = os.environ["PROJECT_ID"]
 
-    baseUrl = '{}/api/v3/projects/{}/search/'
+    baseUrl = '{}/api/v3/projects/{}/test-cycles/'
 
     testLogUrl = baseUrl.format(qTestUrl, projectId)
     payload = {
-      "object_type": "test-cycles",
-      "fields": [
-        "*"
-      ],
-      "query": "'name' ~ 'Junit Automated Tests'"
+        "id": 1,
+        "name": "Features",
+        'last_modified_date': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
     }
 
     key = '{}'
@@ -180,10 +178,10 @@ def get_test_cycle():
     headers = {'Content-Type': 'application/json',
            "Authorization": key}
 
-    r = requests.post(testLogUrl, data=json.dumps(payload), headers=headers)
+    r = requests.get(testLogUrl, data=json.dumps(payload), headers=headers)
     string = json.loads(r.text)
     testcycleId = None
-    for attrib in string['items']:
+    for attrib in string:
         name = attrib.get('name')
         if name == "Junit Automated Tests":
             testcycleId = attrib.get('id')

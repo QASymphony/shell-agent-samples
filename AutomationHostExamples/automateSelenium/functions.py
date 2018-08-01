@@ -75,11 +75,7 @@ def parse_xml():
         status = tag['result']
         if tag.find('start-time') is not None and tag.find('end-time') is not None:
             start = tag['start-time']
-            startArr = start.split()
-            start = startArr[0] + 'T' + startArr[1]
             end = tag['end-time']
-            endArr = end.split()
-            end = endArr[0] + 'T' + endArr[1] 
         else:
             start = None
             end = None
@@ -173,15 +169,13 @@ def get_test_cycle():
     qTestUrl = qtest_config["qtest_url"]
     projectId = os.environ["PROJECT_ID"]
 
-    baseUrl = '{}/api/v3/projects/{}/search/'
+    baseUrl = '{}/api/v3/projects/{}/test-cycles/'
 
     testLogUrl = baseUrl.format(qTestUrl, projectId)
     payload = {
-      "object_type": "test-cycles",
-      "fields": [
-        "*"
-      ],
-      "query": "'name' ~ 'Selenium Automated Tests'"
+        "id": 1,
+        "name": "Features",
+        'last_modified_date': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
     }
 
     key = '{}'
@@ -189,10 +183,10 @@ def get_test_cycle():
     headers = {'Content-Type': 'application/json',
            "Authorization": key}
 
-    r = requests.post(testLogUrl, data=json.dumps(payload), headers=headers)
+    r = requests.get(testLogUrl, data=json.dumps(payload), headers=headers)
     string = json.loads(r.text)
     testcycleId = None
-    for attrib in string['items']:
+    for attrib in string:
         name = attrib.get('name')
         if name == "Selenium Automated Tests":
             testcycleId = attrib.get('id')
