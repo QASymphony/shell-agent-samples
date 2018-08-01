@@ -1,0 +1,31 @@
+{
+    "Robot": {
+        "JenkinsAPIToken": "bf1a4e936c565ded9d078b9e6139e42f",
+        "JenkinsJobName": "RobotTest",
+        "JenkinsJobToken": "authtoken",
+        "JenkinsURL": "localhost:8080",
+        "JenkinsUserName": "admin"
+    },
+    "Junit": {
+        "JenkinsAPIToken": "bf1a4e936c565ded9d078b9e6139e42f",
+        "JenkinsJobName": "JunitTest",
+        "JenkinsJobToken": "authtoken",
+        "JenkinsURL": "localhost:8080",
+        "JenkinsUserName": "admin"
+    },
+    "Parameter": {
+        "JenkinsAPIToken": "bf1a4e936c565ded9d078b9e6139e42f",
+        "JenkinsJobName": "Parameterization",
+        "JenkinsJobToken": "authtoken",
+        "JenkinsURL": "localhost:8080",
+        "JenkinsUserName": "admin"
+    },
+    "Nunit": {
+        "JenkinsAPIToken": "bf1a4e936c565ded9d078b9e6139e42f",
+        "JenkinsJobName": "NunitTest",
+        "JenkinsJobToken": "authtoken",
+        "JenkinsURL": "localhost:8080",
+        "JenkinsUserName": "admin"
+    }
+
+}
