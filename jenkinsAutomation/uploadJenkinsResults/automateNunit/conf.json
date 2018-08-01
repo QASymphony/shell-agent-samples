@@ -1,0 +1,5 @@
+{
+  "qtest_api_token": "Your qTest API Token",
+  "qtest_url": "Your qTest URL",
+  "project_id": "Your qTest Manager Project Id"
+}
