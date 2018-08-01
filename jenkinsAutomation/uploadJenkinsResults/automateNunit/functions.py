@@ -2,8 +2,8 @@ import json
 import pathlib
 import requests
 import os
-import sys
 import time
+import sys
 import base64
 
 
@@ -27,9 +27,44 @@ def get_config():
         print("Error: Unexpected error loading configuration: " + str(e))
         return -1
 
+def get_jenkins_config():
+    # Check to ensure the configuration file exists and is readable.
+    try:
+        path = pathlib.Path("jenkinsconfig.json")
+        if path.exists() and path.is_file():
+            with open(path) as config_file:
+                try:
+                    qtest_config = json.load(config_file)
+                    return qtest_config
+                except json.JSONDecodeError:
+                    print("Error: Configuration file not in valid JSON format.")
+        else:
+            raise IOError
+    except IOError:
+        print("Error: Configuration file not found or inaccessible.")
+        return -1
+    except Exception as e:
+        print("Error: Unexpected error loading configuration: " + str(e))
+        return -1
 
-def create_test_logs_json(runName, stepName, status, note, log, start, end):
+def get_console_output():
+    config = get_jenkins_config()
+    JenkinsJob = sys.argv[3]
+    JenkinsAPIToken = config[JenkinsJob]['JenkinsAPIToken']
+    JenkinsJobName = config[JenkinsJob]['JenkinsJobName']
+    JenkinsJobToken = config[JenkinsJob]['JenkinsJobToken']
+    JenkinsURL = config[JenkinsJob]['JenkinsURL']
+    JenkinsUserName = config[JenkinsJob]['JenkinsUserName']
+    getConsoleOutputUrl = "http://" + JenkinsUserName + ":" + JenkinsAPIToken + "@" +  JenkinsURL + "/job/" + JenkinsJobName + "/lastBuild/consoleText"
+    output = requests.get(getConsoleOutputUrl)
+    output = base64.b64encode(bytes(output.text, 'utf-8'))
+    output = output.decode('utf-8')
+    value = {'name': 'ConsoleText.txt', 'content_type': 'application/json', 'data': output}
+    return value
+
+def create_test_logs_json(runName, stepName, status, note, log, start, end, output):
     attachment = []
+    attachment.append(output)
     if start is None:
         start = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
     if end is None:
@@ -49,14 +84,15 @@ def create_test_logs_json(runName, stepName, status, note, log, start, end):
     return body
 
 
-def parse_xml():
+def parse_xml(output):
     try:
         from BeautifulSoup import BeautifulSoup
     except ImportError:
         from bs4 import BeautifulSoup
     try:
         path = sys.argv[1]
-        file = path + '/bin/Debug/TestResult.xml'
+        file = '../{}/bin/Debug/TestResult.xml'
+        file = file.format(path)
         xml = open(file)
     except:
         print('Error: Enter a valid file path argument or file not found or inaccessible')
@@ -79,7 +115,7 @@ def parse_xml():
             start = startArr[0] + 'T' + startArr[1]
             end = tag['end-time']
             endArr = end.split()
-            end = endArr[0] + 'T' + endArr[1] 
+            end = endArr[0] + 'T' + endArr[1]           
         else:
             start = None
             end = None
@@ -99,7 +135,7 @@ def parse_xml():
         else:
             message = ''
             log = ''
-        value = create_test_logs_json(runName, stepName, status, message, log, start, end)
+        value = create_test_logs_json(runName, stepName, status, message, log, start, end, output)
         body.append(value)
     return body
 
@@ -108,8 +144,10 @@ def post_all_tests():
     qtest_config = get_config()
     api_token = qtest_config["qtest_api_token"]
     qTestUrl = qtest_config["qtest_url"]
-    projectId = os.environ["PROJECT_ID"]
-    body = parse_xml()
+    projectId = qtest_config["project_id"]
+    output = get_console_output()
+    
+    body = parse_xml(output)
 
     baseUrl = '{}/api/v3/projects/{}/auto-test-logs'
 
@@ -146,7 +184,7 @@ def post_test_cycle():
     qtest_config = get_config()
     api_token = qtest_config["qtest_api_token"]
     qTestUrl = qtest_config["qtest_url"]
-    projectId = os.environ["PROJECT_ID"]
+    projectId = qtest_config["project_id"]
 
     baseUrl = '{}/api/v3/projects/{}/test-cycles/'
 
@@ -171,17 +209,15 @@ def get_test_cycle():
     qtest_config = get_config()
     api_token = qtest_config["qtest_api_token"]
     qTestUrl = qtest_config["qtest_url"]
-    projectId = os.environ["PROJECT_ID"]
+    projectId = qtest_config["project_id"]
 
-    baseUrl = '{}/api/v3/projects/{}/search/'
+    baseUrl = '{}/api/v3/projects/{}/test-cycles/'
 
     testLogUrl = baseUrl.format(qTestUrl, projectId)
     payload = {
-      "object_type": "test-cycles",
-      "fields": [
-        "*"
-      ],
-      "query": "'name' ~ 'Selenium Automated Tests'"
+        "id": 1,
+        "name": "Features",
+        'last_modified_date': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
     }
 
     key = '{}'
@@ -189,10 +225,10 @@ def get_test_cycle():
     headers = {'Content-Type': 'application/json',
            "Authorization": key}
 
-    r = requests.post(testLogUrl, data=json.dumps(payload), headers=headers)
+    r = requests.get(testLogUrl, data=json.dumps(payload), headers=headers)
     string = json.loads(r.text)
     testcycleId = None
-    for attrib in string['items']:
+    for attrib in string:
         name = attrib.get('name')
         if name == "Selenium Automated Tests":
             testcycleId = attrib.get('id')

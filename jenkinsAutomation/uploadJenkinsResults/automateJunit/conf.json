@@ -1,0 +1,5 @@
+{
+  "qtest_api_token": "<Enter your qTest API Token Here>",
+  "qtest_url": "<Enter your qTest URL Here>",
+  "project_id": "<Enter Your Project ID Here>"
+}
