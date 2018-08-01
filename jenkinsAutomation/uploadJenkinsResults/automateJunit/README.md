@@ -108,7 +108,7 @@ For this example we will be pulling a JUnit Sample Test from QASymphony GitHub&#
 
 ## Set up Jenkins Build Configuration:
 
-Note: If the Jenkins Job Name has spaces in it make sure to put the variable in quotes in the commands below. For example ${JOB_NAME} or %JOB_NAME% will be "${JOB_NAME}" or "%JOB_NAME" respectively.
+Note: If the Jenkins Job Name has spaces in it make sure to put the variable in quotes in the commands below. For example ${JOB_NAME} or %JOB_NAME% will be "${JOB_NAME}" or "%JOB_NAME%" respectively.
 
 ### For Mac Users (Use Execute shell):
 
