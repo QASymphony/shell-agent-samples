@@ -44,7 +44,7 @@ USAGE
                         TC_Name_ to the end
 
     -p parentid         This will look for a matching Release, then Test Cycle,
-                        then Test Suite for a matching name
+                        then Test Suite for a matching id
                         This will be the directory structure we will look under
                         for matching test executions
 
