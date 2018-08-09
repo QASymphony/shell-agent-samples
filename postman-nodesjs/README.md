@@ -50,7 +50,7 @@ USAGE
 
                         NOTE: If a test execution appears twice, BOTH execution results will be added
 
-    -t parenttype       The tyep of folder to look in to store the test results. this is related to parentid
+    -t parenttype       The type of folder to look in to store the test results. this is related to parentid
                         Values can be 'release' 'test-suite' or 'test-cycle'
 
     -c credentials      The file that has the appropriate qTest Credentials for this script.
