@@ -416,7 +416,7 @@ function createAutomationTestRun(testRun, authToken) {
         if (options.parentId) {
             query = "?parentId=" + options.parentId;
             if (options.parentType)
-                query += "parentType=" + options.parentType;
+                query += "&parentType=" + options.parentType;
         }
         var opts = {
             url: creds.qtestUrl + "/api/v3/projects/" + options.projectId + "/test-runs" + query,
