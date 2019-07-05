@@ -1,5 +1,5 @@
 {
-    "email": "huynguyen@qasymphony.com",
-    "password": "admin123",
-    "qtestUrl": "https://demo.qtestnet.com"
+    "qtestUrl": "https://demo.qtestnet.com",
+    "email": "<your login email>",
+    "password": "<your login password>"
 }
