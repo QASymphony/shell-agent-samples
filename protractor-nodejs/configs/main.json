@@ -2,28 +2,28 @@
   "managerUrl": "https://qas.qtestnet.com",
   "parametersUrl": "https://parameters.qtestnet.com",
   "siteAdmin": {
-    "username": "<your user name>",
+    "username": "<your username>",
     "password": "<your password>"
   },
   "packages": {
     "elite": {
       "url": "https://sandbox.qtestdev.com",
       "admin": {
-        "username": "<your user name>",
+        "username": "<your username>",
         "password": "<your password>"
       }
     },
     "premium": {
       "url": "https://ent.qtestnet.com",
       "admin": {
-        "username": "<your user name>",
+        "username": "<your username>",
         "password": "<your password>"
       }
     },
     "pro": {
       "url": "https://pro.qtestnet.com",
       "admin": {
-        "username": "<your user name>",
+        "username": "<your username>",
         "password": "<your password>"
       }
     }
