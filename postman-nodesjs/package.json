@@ -13,6 +13,6 @@
     "command-line-args": "^5.0.2",
     "node-uuid": "^1.4.8",
     "promise": "^8.0.1",
-    "request": "^2.85.0"
+    "request": "^2.88.0"
   }
 }
